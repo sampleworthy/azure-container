@@ -1,0 +1,14 @@
+# Step 1: Login to Azure
+az login
+
+# Step 2: Login to ACR
+az acr login --name <your-acr-name>
+
+# Step 3: Build the Docker image
+docker build -t <your-image-name> .
+
+# Step 4: Tag the Docker image
+docker tag <your-image-name> <your-acr-name>.azurecr.io/<your-image-name>
+
+# Step 5: Push the Docker image
+docker push <your-acr-name>.azurecr.io/<your-image-name>
